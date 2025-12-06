@@ -1,0 +1,94 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  background-image: url("image.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+/* ✅ SAME GRID AS YOUR LAYOUT */
+.container {
+  display: grid;
+  grid-template-areas:
+    "top-left top-right"
+    "button button"
+    "bottom-left bottom-right"
+    ". bottom-text";
+  gap: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ✅ IMAGE BOX */
+.box {
+  width: 150px;
+  height: 200px;
+  border: 3px solid white;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✅ GRID POSITIONS */
+.box-top-left { grid-area: top-left; }
+.box-bottom-right { grid-area: bottom-right; }
+
+.text-top-right { grid-area: top-right; }
+.text-bottom-left { grid-area: bottom-left; }
+.text-bottom { 
+  grid-area: bottom-text;
+  text-align: center;
+}
+
+/* ✅ TEXT BOX */
+.text {
+  background: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ✅ BUTTON */
+.button {
+  grid-area: button;
+  padding: 10px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: white;
+  color: black;
+  margin: auto;
+}
+
+/* ✅ MOBILE RESPONSIVE (KEEPS SAME SHAPE) */
+@media (max-width: 600px) {
+  .box {
+    width: 120px;
+    height: 170px;
+  }
+
+  .text {
+    font-size: 12px;
+    padding: 14px;
+  }
+
+  .button {
+    font-size: 14px;
+  }
+}
