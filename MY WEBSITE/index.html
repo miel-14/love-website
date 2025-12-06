@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="Musika.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+  <!-- TOP LEFT IMAGE -->
+  <div class="box box-top-left">
+    <img src="me and my girl.jpg" alt="Image 1">
+  </div>
+
+  <!-- TOP RIGHT TEXT -->
+  <div class="text text-top-right"></div>
+
+  <!-- BUTTON -->
+  <button class="button">REPLY</button>
+
+  <!-- BOTTOM LEFT TEXT -->
+  <div class="text text-bottom-left"></div>
+
+  <!-- BOTTOM RIGHT IMAGE -->
+  <div class="box box-bottom-right">
+    <img src="me and my girl 2.jpg" alt="Image 2">
+  </div>
+
+  <!-- CENTER BOTTOM TEXT -->
+  <div class="text text-bottom"></div>
+
+</div>
+
+<!-- ✅ Typing Effect -->
+<script>
+const texts = [
+  "Every moment with you is special.",
+  "No matter what happens, I will always choose you.",
+  "I love you always and Happy Anniversary my love."
+];
+
+const targets = [
+  document.querySelector(".text-top-right"),
+  document.querySelector(".text-bottom-left"),
+  document.querySelector(".text-bottom")
+];
+
+let t = 0;
+let c = 0;
+
+function typeEffect() {
+  if (t < texts.length) {
+    if (c < texts[t].length) {
+      targets[t].textContent += texts[t].charAt(c);
+      c++;
+      setTimeout(typeEffect, 50);
+    } else {
+      t++;
+      c = 0;
+      setTimeout(typeEffect, 800);
+    }
+  }
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
